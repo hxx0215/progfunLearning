@@ -7,20 +7,27 @@ object exercise {
   x.denom                                         //> res1: Int = 3
   val y = new Rational(5, 7)                      //> y  : week3.Rational = 5/7
   x.add(y)                                        //> res2: week3.Rational = 22/21
-  val z = new Rational(3,2)                       //> z  : week3.Rational = 3/2
+  val z = new Rational(3, 2)                      //> z  : week3.Rational = 3/2
   x.sub(y).sub(z)                                 //> res3: week3.Rational = -79/42
+  y.add(y)                                        //> res4: week3.Rational = 10/7
+  new Rational(2)                                 //> res5: week3.Rational = 2/1
 }
 
 class Rational(x: Int, y: Int) {
-  def numer = x
-  def denom = y
-
+require(y!=0 , "denominator must be not zero")
+def this(x: Int) = this(x,1)
+  private def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
+  private val g = gcd(x, y)
+  def numer = x / g
+  def denom = y / g
+  def less(that: Rational) = numer * that.denom < that.numer * denom
+  def max(that: Rational) = if (this.less(that)) that else this
   def add(that: Rational) =
     new Rational(
       numer * that.denom + denom * that.numer,
       denom * that.denom)
 
   override def toString = numer + "/" + denom
-	def neg = new Rational(- numer,denom)
-	def sub(that: Rational) = add(that.neg)
+  def neg = new Rational(-numer, denom)
+  def sub(that: Rational) = add(that.neg)
 }
