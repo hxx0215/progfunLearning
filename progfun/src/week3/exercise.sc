@@ -11,6 +11,15 @@ object exercise {
   x - y - z                                       //> res3: week3.Rational = -79/42
   y + y                                           //> res4: week3.Rational = 10/7
   new Rational(2)                                 //> res5: week3.Rational = 2/1
+  def insert(x: Int,xs: List[Int]):List[Int] = xs match {
+  	case List() => List(x)
+  	case y::ys => if (x<y) x::xs else y::insert(x,ys)
+  }                                               //> insert: (x: Int, xs: List[Int])List[Int]
+  def isort(x: List[Int]):List[Int] = x match{
+  case List() => List()
+  case y::ys => insert(y,isort(ys))
+  }                                               //> isort: (x: List[Int])List[Int]
+  isort(List(1,321,5,3,2))                        //> res6: List[Int] = List(1, 2, 3, 5, 321)
 }
 
 class Rational(x: Int, y: Int) {

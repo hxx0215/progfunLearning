@@ -18,4 +18,5 @@ object exprs {
   show(Prod(Number(2),Number(3)))                 //> res1: String = 2 * 3
   show(Sum(Prod(Number(2),Var("x")),Var("y")))    //> res2: String = 2 * x + y
   show(Prod(Sum(Number(2),Var("x")),Var("y")))    //> res3: String = (2 + x) * y
+  
 }
