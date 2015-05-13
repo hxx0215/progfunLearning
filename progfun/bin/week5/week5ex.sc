@@ -21,4 +21,10 @@ object week5ex {
   }                                               //> flatten: (xs: List[Any])List[Any]
   flatten(List(1,List(2,List(3,4))))              //> res1: List[Any] = List(1, 2, 3, 4)
   fruit.flatten                                   //> res2: List[Char] = List(a, p, p, l, e, s, o, r, a, n, g, e, p, e, a, r, s)
+  def squareList(xs:List[Int]):List[Int] = xs match{
+   case Nil => xs
+   case y::ys => y*y :: squareList(ys)
+  }
+  def squareList1(xs:List[Int]):List[Int] = 
+  xs map (x => x*x)
 }
