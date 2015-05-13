@@ -24,7 +24,14 @@ object week5ex {
   def squareList(xs:List[Int]):List[Int] = xs match{
    case Nil => xs
    case y::ys => y*y :: squareList(ys)
-  }
-  def squareList1(xs:List[Int]):List[Int] = 
-  xs map (x => x*x)
+  }                                               //> squareList: (xs: List[Int])List[Int]
+  def squareList1(xs:List[Int]):List[Int] =
+  xs map (x => x*x)                               //> squareList1: (xs: List[Int])List[Int]
+  def concat[T](xs: List[T],ys: List[T]):List[T] =
+  (xs foldRight ys)(_::_)                         //> concat: [T](xs: List[T], ys: List[T])List[T]
+  def mapFun[T,U](xs:List[T], f: T=>U):List[U] =
+  (xs foldRight List[U]())(f(_)::_)               //> mapFun: [T, U](xs: List[T], f: T => U)List[U]
+  def lengthFun[T](xs: List[T]):Int =
+  (xs foldRight 0)((_,y)=>1+y)                    //> lengthFun: [T](xs: List[T])Int
+  lengthFun(List(1,2,3,4,3))                      //> res3: Int = 5
 }
