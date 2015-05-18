@@ -19,13 +19,4 @@ object session {
   sqrt(1e4)                                       //> res3: Double = 100.00000025490743
   sqrt(0.04)                                      //> res4: Double = 0.2000000000021489
   sqrt(3)                                         //> res5: Double = 1.7320508100147274
-  val g: PartialFunction[List[Int],String] = {
-  case Nil => "one"
-  case x:: rest =>
-  	rest match {
-  	case Nil => "two"
-  	}
-  }                                               //> g  : PartialFunction[List[Int],String] = <function1>
-  g.isDefinedAt(List(1,2,3))                      //> res6: Boolean = true
-  g(List())                                       //> res7: String = one
 }
