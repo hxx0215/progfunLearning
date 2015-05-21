@@ -21,6 +21,7 @@ object week5ex {
   }                                               //> flatten: (xs: List[Any])List[Any]
   flatten(List(1,List(2,List(3,4))))              //> res1: List[Any] = List(1, 2, 3, 4)
   fruit.flatten                                   //> res2: List[Char] = List(a, p, p, l, e, s, o, r, a, n, g, e, p, e, a, r, s)
+  flatten(List(1, 1, 2, List(3, List(5, 8))))     //> res3: List[Any] = List(1, 1, 2, 3, 5, 8)
   def squareList(xs:List[Int]):List[Int] = xs match{
    case Nil => xs
    case y::ys => y*y :: squareList(ys)
@@ -33,5 +34,5 @@ object week5ex {
   (xs foldRight List[U]())(f(_)::_)               //> mapFun: [T, U](xs: List[T], f: T => U)List[U]
   def lengthFun[T](xs: List[T]):Int =
   (xs foldRight 0)((_,y)=>1+y)                    //> lengthFun: [T](xs: List[T])Int
-  lengthFun(List(1,2,3,4,3))                      //> res3: Int = 5
+  lengthFun(List(1,2,3,4,3))                      //> res4: Int = 5
 }

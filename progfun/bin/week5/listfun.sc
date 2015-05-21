@@ -24,4 +24,14 @@ object listfun {
   pack(xs) map(ys =>(ys.head,ys.length))          //> encode: [T](xs: List[T])List[(T, Int)]
                                         
 	encode(data)                              //> res7: List[(String, Int)] = List((a,3), (b,1), (c,2), (a,1))
+	val t = List(1,2,3,4,5)                   //> t  : List[Int] = List(1, 2, 3, 4, 5)
+	t flatMap (n => List(n,n+1))              //> res8: List[Int] = List(1, 2, 2, 3, 3, 4, 4, 5, 5, 6)
+	val a = t map (n=>List(n,n+1))            //> a  : List[List[Int]] = List(List(1, 2), List(2, 3), List(3, 4), List(4, 5), 
+                                                  //| List(5, 6))
+	a.flatten                                 //> res9: List[Int] = List(1, 2, 2, 3, 3, 4, 4, 5, 5, 6)
+	val b = List(1,List(2,List(3)),4)         //> b  : List[Any] = List(1, List(2, List(3)), 4)
+	b flatMap {
+	case xs: List[_] =>xs
+	case e => List(e)
+	}                                         //> res10: List[Any] = List(1, 2, List(3), 4)
 }
