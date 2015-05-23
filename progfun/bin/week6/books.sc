@@ -35,4 +35,6 @@ object books {
       a2<-b2.authors
       if a1==a2
       }yield a1                                   //> res1: scala.collection.immutable.Set[String] = Set(bloch,joshua)
+      books flatMap ( b => b.authors withFilter(a =>a startsWith "Bird,") map (y=> b.title))
+                                                  //> res2: scala.collection.immutable.Set[String] = Set(Introduce)
 }
