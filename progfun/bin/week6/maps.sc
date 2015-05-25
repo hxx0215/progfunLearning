@@ -1,5 +1,6 @@
 package week6
 
 object maps {
-  println("Welcome to the Scala worksheet")       //> Welcome to the Scala worksheet
+  val romanNumeral = Map('I' -> 1,'V' -> 5,'X'->10)
+  val capitalOfCountry = Map("US" -> "Washington","Switzerland" -> "Bern")
 }
