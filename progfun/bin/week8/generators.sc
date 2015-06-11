@@ -18,5 +18,21 @@ object generators {
   val integers = new Generator[Int]{
   def generate = scala.util.Random.nextInt()
   }                                               //> integers  : week8.generators.Generator[Int] = week8.generators$$anonfun$main
-                                                  //| $1$$anon$3@3498ed
+                                                  //| $1$$anon$3@3d8c7aca
+	val booleans = integers.map(_>0)          //> booleans  : week8.generators.Generator[Boolean] = week8.generators$$anonfun$
+                                                  //| main$1$Generator$1$$anon$1@3fb6a447
+	  trait Tree
+  case class Inner(left: Tree, right: Tree) extends Tree
+  case class Leaf(x: Int) extends Tree
+	def leafs:Generator[Leaf] = for{
+	 x<- integers
+	} yield Leaf(x)                           //> leafs: => week8.generators.Generator[week8.generators.Leaf]
+	def inners: Generator[Inner] = for{
+	l <- trees
+	r <- trees
+	}yield Inner(l,r)                         //> inners: => week8.generators.Generator[week8.generators.Inner]
+	def trees: Generator[Tree] = for{
+	isLeaf <- booleans
+	tree <- if (isLeaf) leafs else inners
+	}yield tree                               //> trees: => week8.generators.Generator[week8.generators.Tree]
 }
