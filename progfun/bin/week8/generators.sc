@@ -35,4 +35,6 @@ object generators {
 	isLeaf <- booleans
 	tree <- if (isLeaf) leafs else inners
 	}yield tree                               //> trees: => week8.generators.Generator[week8.generators.Tree]
+	trees                                     //> res0: week8.generators.Generator[week8.generators.Tree] = week8.generators$$
+                                                  //| anonfun$main$1$Generator$1$$anon$2@79b4d0f
 }
