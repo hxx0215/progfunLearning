@@ -30,4 +30,5 @@ object listfun {
                                                   //| List(5, 6))
 	a.flatten                                 //> res9: List[Int] = List(1, 2, 2, 3, 3, 4, 4, 5, 5, 6)
 	val b = List(1,List(2,List(3)),4)         //> b  : List[Any] = List(1, List(2, List(3)), 4)
+	
 }

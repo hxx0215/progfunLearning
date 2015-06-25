@@ -10,6 +10,7 @@ object test {
   val pairs = List(1, 2, 5) zip s                 //> pairs  : List[(Int, Char)] = List((1,H), (2,e), (5,l))
   pairs.unzip                                     //> res3: (List[Int], List[Char]) = (List(1, 2, 5),List(H, e, l))
   s flatMap (c => List('.', c))                   //> res4: String = .H.e.l.l.o. .W.o.r.l.d
+  
   def isPrime(n: Int): Boolean = (2 until n ) exists (d => n % d == 0)
                                                   //> isPrime: (n: Int)Boolean
 
@@ -17,4 +18,10 @@ object test {
   isPrime(4)                                      //> res6: Boolean = true
   isPrime(9)                                      //> res7: Boolean = true
   isPrime(5)                                      //> res8: Boolean = false
+  
+  
+  val exa = List(List(1,2),3,List(4,5))           //> exa  : List[Any] = List(List(1, 2), 3, List(4, 5))
+  exa flatMap (a => List(a))                      //> res9: List[Any] = List(List(1, 2), 3, List(4, 5))
+  val aa = List(List(1,2))                        //> aa  : List[List[Int]] = List(List(1, 2))
+  
 }
